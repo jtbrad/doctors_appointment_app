@@ -1,11 +1,12 @@
 class DoctorsController < ApplicationController
+  before_action :set_doctor, only: [:show, :edit, :update, :destroy]
 
   def index
     @doctors = Doctor.all
   end
 
   def show
-    @doctor = Doctor.find(params[:id])
+    
   end
 
   def new
@@ -13,7 +14,7 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = Doctor.new(params.require(:doctor).permit(:name))
+    @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
       redirect_to doctors_path
@@ -24,5 +25,27 @@ class DoctorsController < ApplicationController
   end
 
   def edit
+
   end
+
+  def update
+    
+    if @doctor.update(doctor_params)
+      redirect_to doctor_path(@doctor)
+    else
+      render :edit
+    end
+    
+  end
+
+  private
+
+    def set_doctor
+      @doctor = Doctor.find(params[:id])
+    end
+
+    def doctor_params
+      params.require(:doctor).permit(:name)
+    end
+
 end
