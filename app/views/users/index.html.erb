@@ -1,8 +1,0 @@
-<h1>Users</h1>
-<hr />
-<ul>
-  <%= @users.length <= 0 ? "No Users" : nil %>
-  <% @users.each do |user| %>
-    <%= link_to user.first_name, user_path(user) %>
-  <% end %>
-</ul>
