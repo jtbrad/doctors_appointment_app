@@ -35,7 +35,12 @@ class DoctorsController < ApplicationController
     else
       render :edit
     end
-    
+
+  end
+
+  def destroy
+    @doctor.destroy
+    redirect_to doctors_path
   end
 
   private
