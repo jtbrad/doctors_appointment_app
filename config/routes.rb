@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   root "users#show"
 
   resources :doctors
+
+  resources :users do
+    resources :appointments
+  end
+
 end
