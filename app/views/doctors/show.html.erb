@@ -4,10 +4,11 @@
 <ul>
   <% @appointments.each do |appointment| %>
     <li>
-      <%= appointment.summary %>
+      <%= "#{appointment.summary} with #{@users.find(appointment.user_id).first_name}" %>
     </li>
   <% end %>
 </ul>
-
-<%= link_to "Edit", edit_doctor_path(@doctor) %>
-<%= link_to "Delete", doctor_path(@doctor), method: :delete %>
+<div class="ui secondary menu">
+  <%= link_to "Edit", edit_doctor_path(@doctor), class: "item" %>
+  <%= link_to "Delete", doctor_path(@doctor), method: :delete, class: "item" %>
+</div>

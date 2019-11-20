@@ -1,11 +1,12 @@
-<h1><%= "Welcome #{@user.first_name}" %></h1>
+<h1><%= "Welcome #{@user.full_name}" %></h1>
 <hr />
 <%= link_to "Create New Appointment", new_user_appointment_path(@user)%>
 <br />
+<h2><%= @user.appointments.length <= 0 ? "No Appointments" : "Appointments" %></h2>
 <ul>
   <% @appointments.each do |appointment| %>
     <li>
-      <%= link_to appointment.summary, user_appointment_path(@user, appointment) %>
+      <%= link_to "#{appointment.summary} with #{@doctors.find(appointment.doctor_id).name}", user_appointment_path(@user, appointment) %>
     </li>
   <% end %>
 </ul>

@@ -1,7 +1,9 @@
 <h1>Doctors</h1>
 <hr />
 
-<%= link_to "Add Doctor", new_doctor_path %>
+<div class="ui secondary menu">
+  <%= link_to "Add Doctor", new_doctor_path, class: "item" %>
+</div>
 
 <ul>
   <% @doctors.each do |doctor| %>
