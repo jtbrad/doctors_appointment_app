@@ -1,0 +1,25 @@
+<%= form_with(model: [@user, @appointment], local: true) do |f| %>
+  
+  <div class="field">
+    <%= f.label :doctor %>
+    <%= f.select :doctor_id, @doctors.collect { |d| [d.name, d.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :month %>
+    <%= f.select :month, ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :day %>
+    <%= f.text_field :day, required: true, placeholder: "Day" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.text_field :time, required: true, placeholder: "Time" %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,2 +1,4 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1><%= @appointment.summary %></h1>
+<hr />
+<%= link_to "Edit", edit_user_appointment_path(@user, @appointment) %>
+<%= link_to "Cancel", user_appointment_path(@user, @appointment), method: :delete %>
